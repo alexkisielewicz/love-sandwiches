@@ -1,5 +1,3 @@
-import math
-
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -37,6 +35,7 @@ def get_sales_data():
             break
 
     return sales_data
+
 
 def validate_data(values):
     """
@@ -85,6 +84,7 @@ def update_worksheet(data, worksheet):
     worksheet_to_update.append_row(data)
     print(f"{worksheet.title()} worksheet updated successfully\n")
 
+
 def calculate_surplus_data(sales_row):
     """
      Compare sales with stock and calculate the surplus for each item type.
@@ -104,6 +104,7 @@ def calculate_surplus_data(sales_row):
 
     return surplus_data
 
+
 def get_last_5_entries_sales():
     """
     Collects columns of data from sales worksheet, collecting
@@ -114,11 +115,12 @@ def get_last_5_entries_sales():
     # print(column)
 
     columns = []
-    for ind in range(1,7):
+    for ind in range(1, 7):
         column = sales.col_values(ind)
         columns.append(column[-5:])
 
     return columns
+
 
 def calculate_stock_data(data):
     """
@@ -152,9 +154,3 @@ def main():
 
 print("Welcome to Love Sandwiches Data Automation")
 main()
-
-
-
-
-
-
